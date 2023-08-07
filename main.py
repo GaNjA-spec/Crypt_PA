@@ -12,7 +12,7 @@ from hugchat import hugchat
 from hugchat.login import Login
 
 
-sign = Login('ooo99900036@gmail.com', '%ifz;;yAc7efR*m')
+sign = Login('hugging_chat_email', 'hugging_chat_passwd')
 cookies = sign.login()
 sign.saveCookiesToDir()
 chatbot = hugchat.ChatBot(cookies=cookies.get_dict())
@@ -37,7 +37,7 @@ def listen():
     with sr.Microphone() as source:
 
         print("Listening...")
-        playsound("C:/Users/D4RK_D4NTE/PycharmProjects/pythonProject2/venv/Open.mp3")
+        playsound("Open.mp3")
         r.adjust_for_ambient_noise(source, duration=1)  # Adjust for ambient noise
 
         # Set a timeout and a silence threshold
@@ -103,18 +103,18 @@ def process_command(command):
     intent = doc[0].text  # Get the first token as the intent
       # Convert the doc to string
     if 'play' in intent:
-        playsound("C:/Users/D4RK_D4NTE/PycharmProjects/pythonProject2/venv/Succeed.mp3")
+        playsound("Succeed.mp3")
         track_name = extract_track_name(command_str)
         if track_name:
             play_track(track_name)
         else:
             speak("I'm sorry, I didn't understand the track name.")
     elif 'stop' in intent:
-        playsound("C:/Users/D4RK_D4NTE/PycharmProjects/pythonProject2/venv/Succeed.mp3")
+        playsound("Succeed.mp3")
         sp.pause_playback()
         print("Music playback stopped.")
     elif 'open' in intent:
-        playsound("C:/Users/D4RK_D4NTE/PycharmProjects/pythonProject2/venv/Succeed.mp3")
+        playsound("Succeed.mp3")
         website = extract_website(command)
         if website:
             speak(f"Opening {website}...")
@@ -122,7 +122,7 @@ def process_command(command):
         else:
             speak("I'm sorry, I didn't understand which website to open.")
     elif 'bye' in intent:
-        playsound("C:/Users/D4RK_D4NTE/PycharmProjects/pythonProject2/venv/Succeed.mp3")
+        playsound("Succeed.mp3")
         speak("Goodbye! Have a great day!")
         sys.exit()  # Use sys.exit() to exit the program
     else:
